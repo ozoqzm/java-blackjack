@@ -19,4 +19,12 @@ public class Player {
     public List<Card> getCards() {
         return cards;
     }
+
+    public int getCardValue() {
+        // 카드 값 계산
+    }
+
+    public void showCard() {
+        System.out.println(name + "카드: " + cards + " - 결과: " + getCardValue());
+    }
 }
