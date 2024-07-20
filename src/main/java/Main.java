@@ -1,7 +1,4 @@
-import domain.Card;
-import domain.Dealer;
-import domain.Denomination;
-import domain.Player;
+import domain.*;
 import view.InputView;
 import view.OutputView;
 
@@ -52,13 +49,14 @@ public class Main {
         ov.showResult(players, dealer);
 
         // 최종 승패 결과 출력
-
+        Rule rule = new Rule();
+        rule.determineWinner(players, dealer);
 
     }
     private static List<Player> createPlayers(List<String> names) {
         List<Player> players = new ArrayList<>();
         for (String name : names) {
-            players.add(new Player(name.trim()));
+            players.add(new Player(name.trim())); // 문자열 공백제거
         }
         return players;
     }
