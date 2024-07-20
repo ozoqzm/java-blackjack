@@ -47,9 +47,10 @@ public class Main {
         }
 
         // 전체 카드 개수 출력 - 플레이어 리스트, 딜러 하나 받아와서
+        for (Player player : players) {
+            player.showCard();
+        }
 
-        // 플레이어와 딜러 중
-        // 1. 21이거나 2. 21을 넘은 게 있으면 게임 종료
 
         // 최종 승패 결과 출력
 
