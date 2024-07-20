@@ -11,6 +11,9 @@ public class Player {
     public Player(String name) {
         this.name = name;
     }
+    public String getName() {
+        return name;
+    }
 
     public void addCard(Card card) {
         cards.add(card);
@@ -40,5 +43,8 @@ public class Player {
 
     public void showCard() {
         System.out.println(name + "카드: " + cards + " - 결과: " + getCardValue());
+    }
+    public void onlyShowCard() {
+        System.out.println(name + "카드: " + cards);
     }
 }
