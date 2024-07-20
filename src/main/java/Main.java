@@ -6,16 +6,17 @@ import view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("hihi");
-
         // 제일 초반에 2개씩 나눠주기
         // 반복문으로 이름 리스트에서...
         InputView iv = new InputView();
         List<Player> players = createPlayers(iv.names());
         Dealer dealer = new Dealer();
+        List<Card> deck = createDeck();
+        Collections.shuffle(deck); // 요소 무작위 섞기
 
         for (Player player : players) {
             player.addCard(deck.remove(0));
@@ -23,6 +24,7 @@ public class Main {
         }
         dealer.addCard(deck.remove(0));
         dealer.addCard(deck.remove(0));
+
         // 플레이어들 카드 받기 여부 & 받기 반복
         // 마지막에 딜러 카드 추가 가능 여부 확인 후 받기
         // 받은 후엔 해당 플레이어 전체 카드 리스트 출력
@@ -44,7 +46,7 @@ public class Main {
         return players;
     }
     private static List<Card> createDeck() {
-        List<Card> deck = new ArrayList<>();
+        List<Card> deck = new ArrayList<>(); // 전체 카드들 리스트
         for (Denomination denomination : Denomination.values()) {
             for (int i = 0; i < 4; i++) { // 각 문양당 4장의 카드
                 deck.add(new Card(denomination));
