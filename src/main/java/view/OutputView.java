@@ -8,14 +8,15 @@ import java.util.List;
 
 public class OutputView {
     // 해당 플레이어가 가지고 있는 카드 출력
-    public List<Card> playerCard(Player player) {
-        return player.getCards();
+
+    public void showResult(List<Player> players, Dealer dealer) {
+        for (Player player : players) {
+            player.showCard();
+        }
+        dealer.showCard();
     }
 
-    // 딜러가 가지고 있는 카드 출력
-//    public List<Card> dealerCard(Dealer dealer) {
-//        return dealer.getCards();
-//    }
-//
+    public void showWinner(List<Dealer> dealers, List<Player> players) {
 
+    }
 }

@@ -3,6 +3,7 @@ import domain.Dealer;
 import domain.Denomination;
 import domain.Player;
 import view.InputView;
+import view.OutputView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Main {
         // 제일 초반에 2개씩 나눠주기
         // 반복문으로 이름 리스트에서...
         InputView iv = new InputView();
+        OutputView ov = new OutputView();
         List<Player> players = createPlayers(iv.names());
         Dealer dealer = new Dealer();
         List<Card> deck = createDeck();
@@ -47,10 +49,7 @@ public class Main {
         }
 
         // 전체 카드 개수 출력 - 플레이어 리스트, 딜러 하나 받아와서
-        for (Player player : players) {
-            player.showCard();
-        }
-
+        ov.showResult(players, dealer);
 
         // 최종 승패 결과 출력
 
