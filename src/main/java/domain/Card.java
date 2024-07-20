@@ -17,4 +17,8 @@ public class Card {
         return denomination.isAce();
     }
 
+    @Override
+    public String toString() { // 호출하지 않는 경우 자동 호출
+        return denomination.toString();
+    }
 }
