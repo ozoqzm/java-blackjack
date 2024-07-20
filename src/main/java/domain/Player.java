@@ -3,11 +3,18 @@ package domain;
 import java.util.List;
 
 public class Player {
+    private String name;
     private List<Card> cards;
 
     public Player() {}
 
-    public Player(List<Card> cards) {}
+    public Player(String name) {
+        this.name = name;
+    }
+
+    public void addCard(Card card) {
+        cards.add(card);
+    }
 
     public List<Card> getCards() {
         return cards;
