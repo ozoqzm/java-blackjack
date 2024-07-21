@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Dealer {
     private List<Card> cards = new ArrayList<>();
+    private int profit = 0;
 
     public Dealer() {}
     public Dealer(List<Card> cards) {}
@@ -12,7 +13,13 @@ public class Dealer {
     public void addCard(Card card) {
         cards.add(card);
     }
+    public void setProfit(int profit) {
+        this.profit = profit;
+    }
 
+    public int getProfit() {
+        return profit;
+    }
     public int getCardValue() {
         // 카드 값 계산
         int value = 0;

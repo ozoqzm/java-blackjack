@@ -36,15 +36,14 @@ public class Main {
         // 마지막에 딜러 카드 추가 가능 여부 확인 후 받기
         // 받은 후엔 해당 플레이어 전체 카드 리스트 출력
         for (Player player : players) {
-            while(true) {
+            while (true) {
                 String answer = iv.whether(player.getName());
                 if (answer.equals("y")) {
                     player.addCard(deck.remove(0));
                     player.onlyShowCard();
                     if (player.getCardValue() > 21)
                         break; // 초과 시 break
-                }
-                else
+                } else
                     break;
             }
         }
@@ -57,13 +56,15 @@ public class Main {
         ov.showResult(players, dealer);
 
 //        // 최종 승패 결과 출력
-//        Rule rule = new Rule();
+        Rule rule = new Rule();
 //        rule.determineWinner(players, dealer);
 
         // 최종 수익 출력
         // Rule에서 승패 나눈 거 바탕으로 최종 수익..?
-
+        //    rule.determineResult(players, dealer);
+        ov.showProfit(players, dealer);
     }
+
     private static List<Player> createPlayers(List<String> names) {
         List<Player> players = new ArrayList<>();
         for (String name : names) {
@@ -71,6 +72,7 @@ public class Main {
         }
         return players;
     }
+
     private static List<Card> createDeck() {
         List<Card> deck = new ArrayList<>(); // 전체 카드들 리스트
         for (Denomination denomination : Denomination.values()) {
