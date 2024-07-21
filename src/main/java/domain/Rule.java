@@ -29,4 +29,37 @@ public class Rule {
         }
         System.out.println("딜러: " +dealerWinCount+ "승" +dealerLoseCount+ "패");
     }
+    public void determineResult(List<Player> players, Dealer dealer) {
+        for (Player player : players) {
+            int pValue = player.getCardValue();
+            int dValue = dealer.getCardValue();
+
+            // 플레이어 21 초과
+            if (pValue > 21) {
+                player.lose();
+                dealer.win(player.getBatting());
+            }
+            // 딜러 21 초과
+            else if (dValue > 21) {
+                player.win(player.getBatting());
+            }
+            // 플레이어 값 더 근접
+            else if (pValue > dValue) {
+                player.win(player.getBatting());
+            }
+            // 둘의 값 같음 (동시 21)
+            else if (dValue == pValue) {
+                player.win(player.getBatting());
+            }
+        }
+    }
+    // 초기 분배 후 체크
+    public void initialCheck(List<Player> players, Dealer dealer) {
+        for (Player player : players) {
+            if (player.getCardValue() == 21) {
+                player.win(player.getBatting() * 1.5);
+                dealer.lose(player.getBatting() * 1.5);
+            }
+        }
+    }
 }

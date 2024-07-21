@@ -27,9 +27,9 @@ public class InputView {
         return sc.nextLine();
     }
 
-    public int batting(Player player) {
+    public double batting(Player player) {
         Scanner sc = new Scanner(System.in);
         System.out.println(player.getName() + "의 베팅 금액은?");
-        return sc.nextInt();
+        return sc.nextDouble();
     }
 }

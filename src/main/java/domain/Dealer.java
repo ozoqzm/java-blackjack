@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Dealer {
     private List<Card> cards = new ArrayList<>();
-    private int profit = 0;
+    private double profit = 0;
 
     public Dealer() {}
     public Dealer(List<Card> cards) {}
@@ -17,8 +17,15 @@ public class Dealer {
         this.profit = profit;
     }
 
-    public int getProfit() {
+    public double getProfit() {
         return profit;
+    }
+    public void win(double amount) {
+        profit += amount;
+    }
+
+    public void lose(double amount) {
+        profit -= amount;
     }
     public int getCardValue() {
         // 카드 값 계산

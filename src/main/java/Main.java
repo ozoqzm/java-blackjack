@@ -12,10 +12,11 @@ public class Main {
         InputView iv = new InputView();
         OutputView ov = new OutputView();
         List<Player> players = createPlayers(iv.names());
+        Rule rule = new Rule();
 
         //배팅 금액 입력 받기
         for (Player player : players) {
-            int batting = iv.batting(player);
+            double batting = iv.batting(player);
             // 배팅 금액 저장
             player.setBatting(batting);
         }
@@ -32,6 +33,9 @@ public class Main {
         dealer.addCard(deck.remove(0));
         dealer.addCard(deck.remove(0));
 
+        // 초기 조건
+        rule.initialCheck(players, dealer);
+
         // 플레이어들 카드 받기 여부 & 받기 반복
         // 마지막에 딜러 카드 추가 가능 여부 확인 후 받기
         // 받은 후엔 해당 플레이어 전체 카드 리스트 출력
@@ -39,6 +43,8 @@ public class Main {
             while (true) {
                 String answer = iv.whether(player.getName());
                 if (answer.equals("y")) {
+                    if (player.getCardValue() == 21) // 이미 21
+                        break;
                     player.addCard(deck.remove(0));
                     player.onlyShowCard();
                     if (player.getCardValue() > 21)
@@ -56,12 +62,11 @@ public class Main {
         ov.showResult(players, dealer);
 
 //        // 최종 승패 결과 출력
-        Rule rule = new Rule();
 //        rule.determineWinner(players, dealer);
 
         // 최종 수익 출력
         // Rule에서 승패 나눈 거 바탕으로 최종 수익..?
-        //    rule.determineResult(players, dealer);
+        rule.determineResult(players, dealer);
         ov.showProfit(players, dealer);
     }
 

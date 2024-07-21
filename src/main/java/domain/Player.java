@@ -6,8 +6,8 @@ import java.util.List;
 public class Player {
     private String name;
     private List<Card> cards = new ArrayList<>();
-    private int profit = 0; // 베팅값
-    private int batting = 0;
+    private double profit = 0; // 베팅값
+    private double batting = 0;
 
     public Player() {}
 
@@ -15,16 +15,28 @@ public class Player {
         this.name = name;
     }
 
-    public void setBatting(int batting) {
+    public void setBatting(double batting) {
         this.batting = batting;
     }
 
-    public void setProfit(int profit) {
+    public double getBatting() {
+        return batting;
+    }
+
+    public void setProfit(double profit) {
         this.profit = profit;
     }
 
-    public int getProfit() {
+    public double getProfit() {
         return profit;
+    }
+
+    public void win(double amount) {
+        profit += amount;
+    }
+
+    public void lose() {
+        profit -= batting;
     }
 
     public String getName() {
