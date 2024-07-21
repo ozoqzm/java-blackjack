@@ -6,12 +6,27 @@ import java.util.List;
 public class Player {
     private String name;
     private List<Card> cards = new ArrayList<>();
+    private int profit = 0; // 베팅값
+    private int batting = 0;
 
     public Player() {}
 
     public Player(String name) {
         this.name = name;
     }
+
+    public void setBatting(int batting) {
+        this.batting = batting;
+    }
+
+    public void setProfit(int profit) {
+        this.profit = profit;
+    }
+
+    public int getProfit() {
+        return profit;
+    }
+
     public String getName() {
         return name;
     }
@@ -48,4 +63,5 @@ public class Player {
     public void onlyShowCard() {
         System.out.println(name + "카드: " + cards);
     }
+
 }

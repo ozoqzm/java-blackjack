@@ -1,6 +1,7 @@
 package view;
 
 import domain.Card;
+import domain.Player;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,5 +25,11 @@ public class InputView {
         Scanner sc = new Scanner(System.in);
         System.out.println(input + "는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)");
         return sc.nextLine();
+    }
+
+    public int batting(Player player) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(player.getName() + "의 베팅 금액은?");
+        return sc.nextInt();
     }
 }

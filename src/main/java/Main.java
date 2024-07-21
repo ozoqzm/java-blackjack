@@ -14,6 +14,11 @@ public class Main {
         List<Player> players = createPlayers(iv.names());
 
         //배팅 금액 입력 받기
+        for (Player player : players) {
+            int batting = iv.batting(player);
+            // 배팅 금액 저장
+            player.setBatting(batting);
+        }
 
         // 카드 초기 분베
         Dealer dealer = new Dealer();
@@ -51,9 +56,12 @@ public class Main {
         // 전체 카드 개수 출력 - 플레이어 리스트, 딜러 하나 받아와서
         ov.showResult(players, dealer);
 
-        // 최종 승패 결과 출력
-        Rule rule = new Rule();
-        rule.determineWinner(players, dealer);
+//        // 최종 승패 결과 출력
+//        Rule rule = new Rule();
+//        rule.determineWinner(players, dealer);
+
+        // 최종 수익 출력
+        // Rule에서 승패 나눈 거 바탕으로 최종 수익..?
 
     }
     private static List<Player> createPlayers(List<String> names) {
