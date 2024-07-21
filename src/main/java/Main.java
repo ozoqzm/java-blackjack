@@ -8,11 +8,14 @@ import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
-        // 제일 초반에 2개씩 나눠주기
         // 반복문으로 이름 리스트에서...
         InputView iv = new InputView();
         OutputView ov = new OutputView();
         List<Player> players = createPlayers(iv.names());
+
+        //배팅 금액 입력 받기
+
+        // 카드 초기 분베
         Dealer dealer = new Dealer();
         List<Card> deck = createDeck();
         Collections.shuffle(deck); // 요소 무작위 섞기
